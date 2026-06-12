@@ -1,235 +1,182 @@
-Berikut versi **README.md yang sudah diformat rapi (GitHub-ready)** dengan Markdown yang lebih bersih, terstruktur, dan enak dibaca 👇
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NFT Marketplace</title>
+</head>
 
----
+<body style="font-family: Arial, sans-serif; line-height: 1.6;">
 
-```markdown
-# 🖼️ NFT Marketplace (Hardhat + React + Ethereum)
+<h1>🖼️ NFT Marketplace (Hardhat + React + Ethereum)</h1>
 
-Project ini adalah **NFT Marketplace sederhana berbasis blockchain Ethereum** yang dibuat menggunakan:
+<p>
+Project ini adalah <b>NFT Marketplace sederhana berbasis blockchain Ethereum</b> menggunakan:
+</p>
 
-- Solidity (Smart Contract)
-- Hardhat (Development environment)
-- Ethers.js (Blockchain interaction)
-- React + Vite (Frontend UI)
-- MetaMask (Wallet connection)
+<ul>
+  <li>Solidity (Smart Contract)</li>
+  <li>Hardhat (Development Environment)</li>
+  <li>Ethers.js (Blockchain Interaction)</li>
+  <li>React + Vite (Frontend)</li>
+  <li>MetaMask (Wallet Connection)</li>
+</ul>
 
----
+<hr>
 
-# 🚀 Fitur Utama
+<h2>🚀 Fitur Utama</h2>
 
-## 🔗 Blockchain Features
-- Mint NFT (ERC-721)
-- List NFT ke marketplace dengan harga ETH
-- Beli NFT menggunakan ETH
-- Transfer ownership otomatis setelah pembelian
-- Penyimpanan listing NFT di smart contract
-- Sistem owner-based minting (hanya owner bisa mint NFT)
+<h3>🔗 Blockchain Features</h3>
+<ul>
+  <li>Mint NFT (ERC-721)</li>
+  <li>List NFT dengan harga ETH</li>
+  <li>Beli NFT menggunakan ETH</li>
+  <li>Transfer ownership otomatis</li>
+  <li>Penyimpanan listing di smart contract</li>
+  <li>Owner-only minting system</li>
+</ul>
 
----
+<h3>💻 Frontend Features</h3>
+<ul>
+  <li>Connect MetaMask wallet</li>
+  <li>Mint NFT</li>
+  <li>List NFT ke marketplace</li>
+  <li>Cek listing NFT</li>
+  <li>Buy NFT langsung dari UI</li>
+</ul>
 
-## 💻 Frontend Features
-- Connect MetaMask wallet
-- Mint NFT ke address tertentu
-- List NFT ke marketplace
-- Cek listing NFT (seller, price, status)
-- Buy NFT langsung dari UI
+<hr>
 
----
+<h2>🏗️ Struktur Project</h2>
 
-# 🏗️ Struktur Project
-
-```
-
+<pre>
 nft-marketplace/
 │
-├── contracts/        # Smart Contract (Hardhat)
-├── scripts/          # Deploy & interaction scripts
-├── frontend/         # React + Vite frontend
-└── README.md
+├── contracts/   Smart Contract (Hardhat)
+├── scripts/     Deploy & interaction scripts
+├── frontend/    React + Vite UI
+└── README.html
+</pre>
 
-````
+<hr>
 
----
+<h2>📦 Smart Contract</h2>
 
-# 📦 Smart Contract
+<h3>NFTMarketplace.sol</h3>
 
-## 📜 NFTMarketplace.sol
-
-Smart contract ini memiliki fitur utama:
-
-### 1. Mint NFT
-Hanya owner contract yang bisa mint NFT:
-
-```solidity
+<h4>1. Mint NFT</h4>
+<pre>
 function mintNFT(address recipient) public onlyOwner returns (uint256);
-````
+</pre>
 
----
-
-### 2. List NFT
-
-NFT dapat dipasang harga untuk dijual:
-
-```solidity
+<h4>2. List NFT</h4>
+<pre>
 function listNFT(uint256 tokenId, uint256 price);
-```
+</pre>
 
----
-
-### 3. Buy NFT
-
-Pengguna dapat membeli NFT dengan ETH:
-
-```solidity
+<h4>3. Buy NFT</h4>
+<pre>
 function buyNFT(uint256 tokenId) public payable;
-```
+</pre>
 
----
+<h4>4. Get Listing</h4>
+<pre>
+function getListing(uint256 tokenId);
+</pre>
 
-### 4. Check Listing
+<hr>
 
-Melihat detail listing NFT:
+<h2>⚙️ Cara Menjalankan Project</h2>
 
-```solidity
-function getListing(uint256 tokenId)
-```
-
----
-
-# ⚙️ Cara Menjalankan Project (Local)
-
-## 1. Clone Repository
-
-```bash
+<h3>1. Clone Repository</h3>
+<pre>
 git clone https://github.com/USERNAME/nft-marketplace.git
 cd nft-marketplace
-```
+</pre>
 
----
-
-## 2. Install Dependencies (Smart Contract)
-
-```bash
+<h3>2. Install Dependencies</h3>
+<pre>
 cd contracts
 npm install
-```
+</pre>
 
----
-
-## 3. Jalankan Local Blockchain
-
-```bash
+<h3>3. Jalankan Blockchain Lokal</h3>
+<pre>
 npx hardhat node
-```
+</pre>
 
-Blockchain akan berjalan di:
+<p>RPC: http://127.0.0.1:8545</p>
 
-```
-http://127.0.0.1:8545
-```
-
----
-
-## 4. Deploy Smart Contract
-
-Buka terminal baru:
-
-```bash
+<h3>4. Deploy Smart Contract</h3>
+<pre>
 npx hardhat run scripts/deploy.js --network localhost
-```
+</pre>
 
-Simpan address contract yang muncul.
-
----
-
-## 5. Setup Frontend
-
-```bash
+<h3>5. Setup Frontend</h3>
+<pre>
 cd ../frontend
 npm install
 npm install ethers
-```
+</pre>
 
----
-
-## 6. Jalankan Frontend
-
-```bash
+<h3>6. Jalankan Frontend</h3>
+<pre>
 npm run dev
-```
+</pre>
 
-Akses:
+<p>Frontend: http://localhost:5173</p>
 
-```
-http://localhost:5173
-```
+<hr>
 
----
+<h2>🦊 MetaMask Setup</h2>
 
-# 🦊 Setup MetaMask
+<ul>
+  <li>Network: Hardhat Local</li>
+  <li>RPC: http://127.0.0.1:8545</li>
+  <li>Chain ID: 31337</li>
+</ul>
 
-Tambahkan network baru:
+<p><b>Import account:</b></p>
 
-* Network Name: Hardhat Local
-* RPC URL: [http://127.0.0.1:8545](http://127.0.0.1:8545)
-* Chain ID: 31337
-* Currency Symbol: ETH
+<pre>
+0xf39fd6e51aad88f6aB8827279cfffb92266
+</pre>
 
-Import salah satu akun Hardhat:
+<hr>
 
-```
-0xf39fd6e51aad88f6f4ce6aB8827279cfffb92266
-```
+<h2>🔄 Flow Aplikasi</h2>
 
----
+<ol>
+  <li>Connect wallet</li>
+  <li>Mint NFT</li>
+  <li>List NFT</li>
+  <li>Buy NFT</li>
+  <li>Ownership berpindah</li>
+</ol>
 
-# 🔄 Flow Aplikasi
+<hr>
 
-1. Connect wallet (MetaMask)
-2. Mint NFT (owner)
-3. List NFT dengan harga ETH
-4. User lain membeli NFT
-5. Ownership berpindah otomatis
-6. Listing menjadi inactive
+<h2>⚠️ Catatan Penting</h2>
 
----
+<ul>
+  <li>Hanya untuk development lokal</li>
+  <li>Jangan pakai private key di mainnet</li>
+</ul>
 
-# ⚠️ Catatan Penting
+<hr>
 
-* Ini adalah project **development / lokal**
-* Jangan gunakan private key Hardhat di mainnet
-* Gunakan hanya untuk belajar blockchain
+<h2>🧠 Teknologi</h2>
 
----
+<ul>
+  <li>Solidity 0.8.x</li>
+  <li>Hardhat</li>
+  <li>Ethers.js v6</li>
+  <li>React + Vite</li>
+</ul>
 
-# 🧠 Teknologi
+<hr>
 
-* Solidity ^0.8.x
-* Hardhat
-* Ethers.js v6
-* React + Vite
-* OpenZeppelin ERC721
+<h2>📌 Author</h2>
+<p>Project ini dibuat untuk pembelajaran Blockchain Development.</p>
 
----
-
-# 📌 Author
-
-Project ini dibuat untuk pembelajaran **Blockchain & Smart Contract Development**
-
-```
-
----
-
-## 🔥 Hasilnya nanti di GitHub:
-- rapi seperti dokumentasi profesional
-- ada heading + code block yang benar
-- mudah dibaca teman kelompok
-- terlihat seperti project startup Web3
-
----
-
-Kalau kamu mau, aku bisa bantu upgrade lagi:
-- :contentReference[oaicite:0]{index=0}
-- :contentReference[oaicite:1]{index=1}
-- atau :contentReference[oaicite:2]{index=2}
-```
+</body>
+</html>
