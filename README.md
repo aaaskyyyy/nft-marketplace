@@ -1,122 +1,235 @@
-🖼️ NFT Marketplace (Hardhat + React + Ethereum)
+Berikut versi **README.md yang sudah diformat rapi (GitHub-ready)** dengan Markdown yang lebih bersih, terstruktur, dan enak dibaca 👇
 
-Project ini adalah NFT Marketplace sederhana berbasis blockchain Ethereum yang dibuat menggunakan:
+---
 
-Solidity (Smart Contract)
-Hardhat (Development environment)
-Ethers.js (Frontend blockchain interaction)
-React + Vite (Frontend UI)
-MetaMask (Wallet connection)
-🚀 Fitur Utama
-🔗 Blockchain Features
-Mint NFT (ERC-721)
-List NFT ke marketplace dengan harga ETH
-Beli NFT menggunakan ETH
-Transfer ownership otomatis setelah pembelian
-Penyimpanan listing NFT di smart contract
-Sistem owner-based minting (hanya owner bisa mint NFT)
-💻 Frontend Features
-Connect MetaMask wallet
-Mint NFT ke address tertentu
-List NFT ke marketplace
-Cek listing NFT (seller, price, status)
-Buy NFT langsung dari UI
-🏗️ Struktur Project
+```markdown
+# 🖼️ NFT Marketplace (Hardhat + React + Ethereum)
+
+Project ini adalah **NFT Marketplace sederhana berbasis blockchain Ethereum** yang dibuat menggunakan:
+
+- Solidity (Smart Contract)
+- Hardhat (Development environment)
+- Ethers.js (Blockchain interaction)
+- React + Vite (Frontend UI)
+- MetaMask (Wallet connection)
+
+---
+
+# 🚀 Fitur Utama
+
+## 🔗 Blockchain Features
+- Mint NFT (ERC-721)
+- List NFT ke marketplace dengan harga ETH
+- Beli NFT menggunakan ETH
+- Transfer ownership otomatis setelah pembelian
+- Penyimpanan listing NFT di smart contract
+- Sistem owner-based minting (hanya owner bisa mint NFT)
+
+---
+
+## 💻 Frontend Features
+- Connect MetaMask wallet
+- Mint NFT ke address tertentu
+- List NFT ke marketplace
+- Cek listing NFT (seller, price, status)
+- Buy NFT langsung dari UI
+
+---
+
+# 🏗️ Struktur Project
+
+```
+
 nft-marketplace/
 │
-├── contracts/        # Smart contract (Hardhat)
+├── contracts/        # Smart Contract (Hardhat)
 ├── scripts/          # Deploy & interaction scripts
 ├── frontend/         # React + Vite frontend
 └── README.md
-📦 Smart Contract
-📜 NFTMarketplace.sol
 
-Fitur utama contract:
+````
 
-1. Mint NFT
+---
 
+# 📦 Smart Contract
+
+## 📜 NFTMarketplace.sol
+
+Smart contract ini memiliki fitur utama:
+
+### 1. Mint NFT
 Hanya owner contract yang bisa mint NFT:
 
-function mintNFT(address recipient) public onlyOwner returns (uint256)
-2. List NFT
+```solidity
+function mintNFT(address recipient) public onlyOwner returns (uint256);
+````
 
-NFT bisa dipasang harga:
+---
 
-function listNFT(uint256 tokenId, uint256 price)
-3. Buy NFT
+### 2. List NFT
 
-User bisa membeli NFT dengan ETH:
+NFT dapat dipasang harga untuk dijual:
 
-function buyNFT(uint256 tokenId) public payable
-4. Check Listing
+```solidity
+function listNFT(uint256 tokenId, uint256 price);
+```
 
-Melihat detail NFT:
+---
 
+### 3. Buy NFT
+
+Pengguna dapat membeli NFT dengan ETH:
+
+```solidity
+function buyNFT(uint256 tokenId) public payable;
+```
+
+---
+
+### 4. Check Listing
+
+Melihat detail listing NFT:
+
+```solidity
 function getListing(uint256 tokenId)
-⚙️ Cara Menjalankan Project (Local)
-1. Clone Repository
+```
+
+---
+
+# ⚙️ Cara Menjalankan Project (Local)
+
+## 1. Clone Repository
+
+```bash
 git clone https://github.com/USERNAME/nft-marketplace.git
 cd nft-marketplace
-2. Install Dependencies (Contracts)
+```
+
+---
+
+## 2. Install Dependencies (Smart Contract)
+
+```bash
 cd contracts
 npm install
-3. Jalankan Local Blockchain (Hardhat)
+```
 
-Terminal 1:
+---
 
+## 3. Jalankan Local Blockchain
+
+```bash
 npx hardhat node
+```
 
-Ini akan menjalankan blockchain lokal di:
+Blockchain akan berjalan di:
 
+```
 http://127.0.0.1:8545
-4. Deploy Smart Contract
+```
 
-Terminal 2:
+---
 
+## 4. Deploy Smart Contract
+
+Buka terminal baru:
+
+```bash
 npx hardhat run scripts/deploy.js --network localhost
+```
 
-Simpan alamat contract yang muncul.
+Simpan address contract yang muncul.
 
-5. Setup Frontend
+---
+
+## 5. Setup Frontend
+
+```bash
 cd ../frontend
 npm install
 npm install ethers
-6. Jalankan Frontend
+```
+
+---
+
+## 6. Jalankan Frontend
+
+```bash
 npm run dev
+```
 
-Frontend akan berjalan di:
+Akses:
 
+```
 http://localhost:5173
-🦊 Setup MetaMask
+```
 
-Tambahkan network:
+---
 
-Network Name: Hardhat Local
-RPC URL: http://127.0.0.1:8545
-Chain ID: 31337
-Currency: ETH
+# 🦊 Setup MetaMask
 
-Import salah satu private key dari Hardhat node:
+Tambahkan network baru:
 
+* Network Name: Hardhat Local
+* RPC URL: [http://127.0.0.1:8545](http://127.0.0.1:8545)
+* Chain ID: 31337
+* Currency Symbol: ETH
+
+Import salah satu akun Hardhat:
+
+```
 0xf39fd6e51aad88f6f4ce6aB8827279cfffb92266
-🔄 Flow Aplikasi
-Connect wallet (MetaMask)
-Mint NFT (oleh owner)
-List NFT dengan harga ETH
-User lain membeli NFT
-Ownership berpindah otomatis
-Listing menjadi inactive
-⚠️ Catatan Penting
-Ini project lokal (development only), bukan mainnet
-Gunakan Hardhat node untuk testing
-Jangan gunakan private key ini di jaringan asli
-🧠 Teknologi yang Dipakai
-Solidity ^0.8.x
-Hardhat
-Ethers.js v6
-React + Vite
-OpenZeppelin ERC721
-📌 Author
+```
 
-Project NFT Marketplace ini dibuat untuk pembelajaran blockchain development.
+---
 
+# 🔄 Flow Aplikasi
+
+1. Connect wallet (MetaMask)
+2. Mint NFT (owner)
+3. List NFT dengan harga ETH
+4. User lain membeli NFT
+5. Ownership berpindah otomatis
+6. Listing menjadi inactive
+
+---
+
+# ⚠️ Catatan Penting
+
+* Ini adalah project **development / lokal**
+* Jangan gunakan private key Hardhat di mainnet
+* Gunakan hanya untuk belajar blockchain
+
+---
+
+# 🧠 Teknologi
+
+* Solidity ^0.8.x
+* Hardhat
+* Ethers.js v6
+* React + Vite
+* OpenZeppelin ERC721
+
+---
+
+# 📌 Author
+
+Project ini dibuat untuk pembelajaran **Blockchain & Smart Contract Development**
+
+```
+
+---
+
+## 🔥 Hasilnya nanti di GitHub:
+- rapi seperti dokumentasi profesional
+- ada heading + code block yang benar
+- mudah dibaca teman kelompok
+- terlihat seperti project startup Web3
+
+---
+
+Kalau kamu mau, aku bisa bantu upgrade lagi:
+- :contentReference[oaicite:0]{index=0}
+- :contentReference[oaicite:1]{index=1}
+- atau :contentReference[oaicite:2]{index=2}
+```
