@@ -160,6 +160,10 @@ Project ini dibuat untuk pembelajaran <b>Blockchain & Smart Contract Development
 </p>
 
 <h2>Tampilan</h2>
+<p>
+<img width="1366" height="681" alt="image" src="https://github.com/user-attachments/assets/cf776829-689d-4433-b7fe-aa16b15a6c04" />
+
+</p>
 
 </body>
 </html>
