@@ -5,20 +5,25 @@
   <title>NFT Marketplace</title>
 </head>
 
-<body style="font-family: Arial, sans-serif; line-height: 1.6;">
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px;">
 
 <h1>🖼️ NFT Marketplace (Hardhat + React + Ethereum)</h1>
 
 <p>
-Project ini adalah <b>NFT Marketplace sederhana berbasis blockchain Ethereum</b> menggunakan:
+Project ini adalah <b>NFT Marketplace berbasis blockchain Ethereum</b> untuk pembelajaran smart contract development.
 </p>
 
+<hr>
+
+<h2>🧠 Teknologi yang Digunakan</h2>
+
 <ul>
-  <li>Solidity (Smart Contract)</li>
-  <li>Hardhat (Development Environment)</li>
-  <li>Ethers.js (Blockchain Interaction)</li>
+  <li>Solidity ^0.8.x</li>
+  <li>Hardhat (Local Blockchain)</li>
+  <li>Ethers.js v6</li>
   <li>React + Vite (Frontend)</li>
-  <li>MetaMask (Wallet Connection)</li>
+  <li>MetaMask (Wallet)</li>
+  <li>OpenZeppelin ERC721</li>
 </ul>
 
 <hr>
@@ -29,10 +34,10 @@ Project ini adalah <b>NFT Marketplace sederhana berbasis blockchain Ethereum</b>
 <ul>
   <li>Mint NFT (ERC-721)</li>
   <li>List NFT dengan harga ETH</li>
-  <li>Beli NFT menggunakan ETH</li>
+  <li>Buy NFT menggunakan ETH</li>
   <li>Transfer ownership otomatis</li>
   <li>Penyimpanan listing di smart contract</li>
-  <li>Owner-only minting system</li>
+  <li>Hanya owner yang bisa mint NFT</li>
 </ul>
 
 <h3>💻 Frontend Features</h3>
@@ -40,7 +45,7 @@ Project ini adalah <b>NFT Marketplace sederhana berbasis blockchain Ethereum</b>
   <li>Connect MetaMask wallet</li>
   <li>Mint NFT</li>
   <li>List NFT ke marketplace</li>
-  <li>Cek listing NFT</li>
+  <li>Check listing NFT</li>
   <li>Buy NFT langsung dari UI</li>
 </ul>
 
@@ -51,41 +56,15 @@ Project ini adalah <b>NFT Marketplace sederhana berbasis blockchain Ethereum</b>
 <pre>
 nft-marketplace/
 │
-├── contracts/   Smart Contract (Hardhat)
-├── scripts/     Deploy & interaction scripts
-├── frontend/    React + Vite UI
+├── contracts/   → Smart Contract (Hardhat)
+├── scripts/     → Deploy & interaction scripts
+├── frontend/    → React + Vite UI
 └── README.html
 </pre>
 
 <hr>
 
-<h2>📦 Smart Contract</h2>
-
-<h3>NFTMarketplace.sol</h3>
-
-<h4>1. Mint NFT</h4>
-<pre>
-function mintNFT(address recipient) public onlyOwner returns (uint256);
-</pre>
-
-<h4>2. List NFT</h4>
-<pre>
-function listNFT(uint256 tokenId, uint256 price);
-</pre>
-
-<h4>3. Buy NFT</h4>
-<pre>
-function buyNFT(uint256 tokenId) public payable;
-</pre>
-
-<h4>4. Get Listing</h4>
-<pre>
-function getListing(uint256 tokenId);
-</pre>
-
-<hr>
-
-<h2>⚙️ Cara Menjalankan Project</h2>
+<h2>⚙️ Cara Menjalankan Project (Local)</h2>
 
 <h3>1. Clone Repository</h3>
 <pre>
@@ -93,18 +72,22 @@ git clone https://github.com/USERNAME/nft-marketplace.git
 cd nft-marketplace
 </pre>
 
-<h3>2. Install Dependencies</h3>
+<h3>2. Install Dependencies (Smart Contract)</h3>
 <pre>
 cd contracts
 npm install
 </pre>
 
-<h3>3. Jalankan Blockchain Lokal</h3>
+<h3>3. Jalankan Local Blockchain</h3>
 <pre>
 npx hardhat node
 </pre>
 
-<p>RPC: http://127.0.0.1:8545</p>
+<p>
+Blockchain berjalan di:
+<br>
+<b>http://127.0.0.1:8545</b>
+</p>
 
 <h3>4. Deploy Smart Contract</h3>
 <pre>
@@ -123,19 +106,24 @@ npm install ethers
 npm run dev
 </pre>
 
-<p>Frontend: http://localhost:5173</p>
+<p>
+Frontend akan berjalan di:
+<br>
+<b>http://localhost:5173/</b>
+</p>
 
 <hr>
 
-<h2>🦊 MetaMask Setup</h2>
+<h2>🦊 Setup MetaMask</h2>
 
 <ul>
-  <li>Network: Hardhat Local</li>
-  <li>RPC: http://127.0.0.1:8545</li>
+  <li>Network Name: Hardhat Local</li>
+  <li>RPC URL: http://127.0.0.1:8545</li>
   <li>Chain ID: 31337</li>
+  <li>Currency: ETH</li>
 </ul>
 
-<p><b>Import account:</b></p>
+<p><b>Import Account (Hardhat):</b></p>
 
 <pre>
 0xf39fd6e51aad88f6aB8827279cfffb92266
@@ -146,11 +134,11 @@ npm run dev
 <h2>🔄 Flow Aplikasi</h2>
 
 <ol>
-  <li>Connect wallet</li>
+  <li>Connect wallet (MetaMask)</li>
   <li>Mint NFT</li>
-  <li>List NFT</li>
-  <li>Buy NFT</li>
-  <li>Ownership berpindah</li>
+  <li>List NFT dengan harga ETH</li>
+  <li>User lain membeli NFT</li>
+  <li>Ownership berpindah otomatis</li>
 </ol>
 
 <hr>
@@ -158,25 +146,20 @@ npm run dev
 <h2>⚠️ Catatan Penting</h2>
 
 <ul>
-  <li>Hanya untuk development lokal</li>
-  <li>Jangan pakai private key di mainnet</li>
-</ul>
-
-<hr>
-
-<h2>🧠 Teknologi</h2>
-
-<ul>
-  <li>Solidity 0.8.x</li>
-  <li>Hardhat</li>
-  <li>Ethers.js v6</li>
-  <li>React + Vite</li>
+  <li>Project ini hanya untuk development lokal</li>
+  <li>Jangan gunakan private key di mainnet</li>
+  <li>Gunakan Hardhat network untuk testing</li>
 </ul>
 
 <hr>
 
 <h2>📌 Author</h2>
-<p>Project ini dibuat untuk pembelajaran Blockchain Development.</p>
+
+<p>
+Project ini dibuat untuk pembelajaran <b>Blockchain & Smart Contract Development</b>.
+</p>
+
+<h2>Tampilan</h2>
 
 </body>
 </html>
